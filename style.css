@@ -1,0 +1,109 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  height: 100dvmin;
+  width: 100dvmin;
+  background-color: #222;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  color: #aaa;
+  text-align: center;
+  height: 5dvmin;
+  font-size: 4dvmin;
+  font-family: monospace;
+  background-color: #111;
+}
+
+h1 p {
+  color: #007acc;
+  display: inline;
+}
+
+#display {
+  background: none;
+  border: none;
+  width: 81dvmin;
+  height: 13dvmin;
+  font-size: 10dvmin;
+  font-weight: bolder;
+  font-family: monospace;
+  color: white;
+  outline: none;
+  text-align: right;
+  padding: 0 2dvmin;
+}
+
+#buttons {
+  background-color: #111;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1dvmin;
+  height: 82dvmin;
+  padding: 0 9dvmin;
+}
+
+button {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 10dvmin;
+  border-radius: 50%;
+  user-select: none;
+  font-family: monospace;
+  transition: background 0.5s;
+}
+
+button:active {
+  background: #222;
+}
+
+.hide {
+  opacity: 0;
+}
+
+#backspace {
+  width: 13dvmin;
+  font-size: 10dvmin;
+  height: 13dvmin;
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+#backspace:active {
+  transform: scale(0.9);
+  opacity: 1;
+}
+
+#clear {
+  color: orangered;
+}
+
+#result {
+  color: greenyellow;
+}
+
+@keyframes Appear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+body {
+  animation: Appear 0.5s ease-in-out;
+}
