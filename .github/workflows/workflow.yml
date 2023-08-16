@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Compile TS and Publish Repo
 
 on:
   # Runs on pushes targeting the default branch
@@ -33,6 +33,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name : Setup TypeScript
+        run: npm install -g typescript
+      - name: Compile TS
+        run: tsc --target es2015 script.ts
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
