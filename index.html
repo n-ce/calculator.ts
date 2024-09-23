@@ -35,21 +35,18 @@
   </div>
   <script type="module" src="script.js"></script>
 
-  <script>
-    const ws = new WebSocket(`ws://${location.host}`);
-    ws.onmessage = (event) => {
-      if (event.data === 'reload') {
+  <script type="module">
+    if (location.hostname !== 'localhost') return;
+    
+    import('https://cdn.jsdelivr.net/npm/eruda')
+    .then(eruda => eruda.init({tool: ['console', 'elements']}));
+    
+    (new WebSocket(`ws://${location.host}`)).onmessage = 
+    function (event) {
+      if (event.data === 'reload')
         location.reload();
-      }
     };
   </script>
 </body>
-
-<!--Development 
-
-<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init({tool: ["console", "elements"]})</script>
-
-Only-->
 
 </html>
