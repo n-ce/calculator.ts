@@ -34,6 +34,15 @@
     <button class="number">0</button>
   </div>
   <script type="module" src="script.js"></script>
+
+  <script>
+    const socket = new WebSocket(`ws://${location.host}`);
+    socket.onmessage = function(event) {
+      if (event.data === 'reload') {
+        location.reload();
+      }
+    };
+  </script>
 </body>
 
 <!--Development 
